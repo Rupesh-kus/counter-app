@@ -28,7 +28,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1> count:{this.state.count} </h1>
+                <h2> count:{this.state.count} </h2>
                 <Button title = {'+'}
                   task={() => this.incrementCount()} />
                 <Button title ={'-'}
