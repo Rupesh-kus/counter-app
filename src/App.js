@@ -14,14 +14,15 @@ class App extends Component {
         })
     }
     decrementCount =()=> {
-        let {count} =this.state.count
+        let {count} =this.state
         if (count <=0) {
             this.setState( {
                 showErrorMessage: true
             })
-        } else (count >=0) {
+        } else{
             this.setState ({
-                showErrorMessage:false
+                showErrorMessage:false,
+                count:count -1
             })
         } 
     }
@@ -29,6 +30,8 @@ class App extends Component {
         return (
             <div>
                 <h2> count:{this.state.count} </h2>
+                 {this.state.showErrorMessage === true ?
+                     <p style={{ color: 'red' }}> error</p> : ''}
                 <Button title = {'+'}
                   task={() => this.incrementCount()} />
                 <Button title ={'-'}
@@ -69,8 +72,8 @@ export default App;
 //         return (
 //             <div>
 //                 <h1>count={this.state.count}</h1>
-//                 <button onClick={() => this.incrementCount()}>+</button>
-//                 <button onClick={() => this.decrementCount()}>-</button>
+//                 <button onClick={() => this.incrementCount()}>Increase</button>
+//                 <button onClick={() => this.decrementCount()}>Decrease</button>
 //                 {/* <Button title={'+'}
 //                 task={()=> this.incrementCount()} />
 //                 <Button title={'-'}
